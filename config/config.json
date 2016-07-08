@@ -1,0 +1,18 @@
+{
+  "development": {
+    "database": "demo",
+    "username": "userdemo",
+    "password": "dem0u5er",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "apiUrl": "/api/v1"
+  },
+  "test": {
+    "database": "demotest",
+    "username": "userdemo",
+    "password": "dem0u5er",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "apiUrl": "/test-api/v1"
+  }
+}

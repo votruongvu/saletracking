@@ -1,0 +1,92 @@
+{
+  "get": {
+    "summary": "Get single item by Id",
+    "description": "Get Single Purchase Items",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "description": "id of target item",
+        "required": true,
+        "type": "integer"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "An json object of items",
+        "schema": {
+          "$ref": "#/definitions/Item"
+        }
+      },
+      "500": {
+        "description": "Unexpected error",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  },
+  "put": {
+    "summary": "Edit single item by Id",
+    "description": "Edit Single Purchase Items",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "description": "id of target item",
+        "required": true,
+        "type": "integer"
+      },
+      {
+        "name": "item",
+        "in": "body",
+        "description": "An updated json item data",
+        "required": true,
+        "schema": {
+          "$ref": "#/definitions/Item"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "An updated json object of items",
+        "schema": {
+          "$ref": "#/definitions/Item"
+        }
+      },
+      "500": {
+        "description": "Unexpected error",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  },
+  "delete": {
+    "summary": "Delete single item by Id",
+    "description": "Delete Single Purchase Items",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "description": "id of target item",
+        "required": true,
+        "type": "integer"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "A deleted json object of items",
+        "schema": {
+          "$ref": "#/definitions/Item"
+        }
+      },
+      "500": {
+        "description": "Unexpected error",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  }
+}

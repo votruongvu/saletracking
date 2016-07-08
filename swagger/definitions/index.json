@@ -1,0 +1,8 @@
+{
+  "Item": {
+    "$ref": "./item.json"
+  },
+  "Error":{
+    "$ref": "./error.json"
+  }
+}

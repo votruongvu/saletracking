@@ -1,0 +1,16 @@
+.body{
+
+}
+.homeList{
+    max-width: 800px;
+}
+.home-item{
+    margin-bottom: 10px;
+}
+.home-item-red {
+    background-color: #990000 !important;
+}
+
+.home-item-green{
+    background-color: #00d6b2 !important;
+}

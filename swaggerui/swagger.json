@@ -1,0 +1,206 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Purchase Items API with Swagger UI",
+        "description": "Move your app forward with the Purchase Items API",
+        "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "schemes": [
+        "http"
+    ],
+    "basePath": "/api/v1",
+    "definitions": {
+        "Item": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "ID of item"
+                },
+                "productName": {
+                    "type": "string",
+                    "description": "Product name of item."
+                },
+                "quantity": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Quantity of item"
+                },
+                "unitPrice": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Unit Price of item"
+                },
+                "amount": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Amount of item"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Product name of item."
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/item": {
+            "get": {
+                "summary": "Get all Items",
+                "description": "Get All Purchase Items",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "An array of items",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Item"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add single item by Id",
+                "description": "Add Single Purchase Items",
+                "parameters": [
+                    {
+                        "name": "item",
+                        "in": "body",
+                        "description": "new json item data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A new json object of items",
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/item/{id}": {
+            "get": {
+                "summary": "Get single item by Id",
+                "description": "Get Single Purchase Items",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of target item",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An json object of items",
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Edit single item by Id",
+                "description": "Edit Single Purchase Items",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of target item",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "item",
+                        "in": "body",
+                        "description": "An updated json item data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An updated json object of items",
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete single item by Id",
+                "description": "Delete Single Purchase Items",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of target item",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A deleted json object of items",
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Purchase Items API with Swagger UI",
+    "description": "Move your app forward with the Purchase Items API",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/api/v1",
+  "definitions": {
+    "$ref": "./definitions/index.json"
+  },
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "$ref": "./paths/index.json"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "get": {
+    "summary": "Get all Items",
+    "description": "Get All Purchase Items",
+    "parameters": [],
+    "responses": {
+      "200": {
+        "description": "An array of items",
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Item"
+          }
+        }
+      },
+      "500": {
+        "description": "Unexpected error",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  },
+  "post": {
+    "summary": "Add single item by Id",
+    "description": "Add Single Purchase Items",
+    "parameters": [
+      {
+        "name": "item",
+        "in": "body",
+        "description": "new json item data",
+        "required": true,
+        "schema": {
+          "$ref": "#/definitions/Item"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "A new json object of items",
+        "schema": {
+          "$ref": "#/definitions/Item"
+        }
+      },
+      "500": {
+        "description": "Unexpected error",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  }
+}

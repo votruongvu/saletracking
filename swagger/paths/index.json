@@ -1,0 +1,8 @@
+{
+  "/item": {
+    "$ref": "./item.json"
+  },
+  "/item/{id}": {
+    "$ref": "./itemid.json"
+  }
+}

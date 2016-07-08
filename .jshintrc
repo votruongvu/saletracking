@@ -1,0 +1,29 @@
+{
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "newcap": true,
+  "noarg": true,
+  "noempty": true,
+  "nonew": true,
+  "undef": true,
+  "strict": true,
+  "unused": true,
+  "evil": true,
+  "indent": 4,
+  "quotmark": "double",
+  "sub": true,
+  "browser": true,
+  "globals": {
+    "module": false,
+    "process": false,
+    "__dirname": false,
+    "require": false,
+    "define": false,
+    "describe": false,
+    "it": false,
+    "before": false,
+    "after": false
+  }
+}

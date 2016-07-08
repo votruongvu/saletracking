@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "ID of item"
+    },
+    "productName": {
+      "type": "string",
+      "description": "Product name of item."
+    },
+    "quantity": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Quantity of item"
+    },
+    "unitPrice": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Unit Price of item"
+    },
+    "amount": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Amount of item"
+    },
+    "description": {
+      "type": "string",
+      "description": "Product name of item."
+    }
+  }
+}

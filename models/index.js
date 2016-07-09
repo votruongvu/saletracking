@@ -34,14 +34,22 @@ module.exports = function () {
             db[model.name] = model;
         });
 
-    db["order"].hasOne(db["location"],{as: "location"});
-    db["order"].hasMany(db["item"], {as: "items"});
+    db["itemdict"].hasMany(db["itemprice"]);
+
+    db["item"].belongsTo(db["itemdict"]);
+    db["item"].belongsTo(db["itemprice"]);
 
     db["group"].belongsToMany(db["user"], {through: "usergroup"});
     db["user"].belongsToMany(db["group"], {through: "usergroup"});
 
+    db["order"].hasOne(db["location"],{as: "location"});
+    db["order"].hasMany(db["item"], {as: "items"});
     db["order"].belongsTo(db["user"]);
     db["order"].belongsTo(db["customer"]);
+
+
+
+
 
     //assign to db as property for later use
     db.sequelize = sequelize;

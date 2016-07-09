@@ -9,7 +9,7 @@ module.exports = function (models, Q) {
     orderService.getAllOrders = function () {
         var deferred = Q.defer();
         models.order.findAll(
-            {include: [{model: models.item, as: "items"}, {model: models.location, as: "location"}, {model: models.user, as: "user"}]}
+            {include: [{model: models.item, as: "items", include:[{model : models.itemdict},{model: models.itemprice}]}, {model: models.location, as: "location"}, {model: models.user, as: "user"}, {model: models.customer, as: "customer"}]}
         ).then(function (orders) {
             //process the data which is fetch from db
             deferred.resolve(orders);
@@ -82,14 +82,15 @@ module.exports = function (models, Q) {
                 // chain all your queries here. make sure you return them.
                 return models.order.findById(id,{include: [{model: models.item, as: "items"}, {model: models.location, as: "location"}]}).then(function (order) {
                     if (order) {
-                        console.log(order.location);
                         return Q.all([
                             order.location.update(updateOrder.location,{transaction: t}),
                             order.items.forEach(function (item) {
                                 //finding in updated list items, if not exsists (return undefined) means need to delete, if having means edit
                                 //Sequenlize will auto decice which item need to modifed, it will not run query if json data does not changed
                                 var updatedItem = updateOrder.items.find(function(updatedItem){
-                                    if(!updatedItem.id) return false;
+                                    if(!updatedItem.id){
+                                        return false;
+                                    }
                                     return item.id === updatedItem.id;
                                 });
                                 if(updatedItem){
@@ -101,10 +102,10 @@ module.exports = function (models, Q) {
                             //finding in updated list item, if not in exsiting list item from db means new item
                             updateOrder.items.forEach(function(updatedItem){
                                 if(!updatedItem.id){
-                                    return models.item.create(updatedItem,{transaction : t})
+                                    return models.item.create(updatedItem,{transaction : t});
                                 }
                             }),
-                            order.update({orderDate: updateOrder.orderDate}, {transaction: t})
+                            order.update({orderDate: updateOrder.orderDate, customerId: updateOrder.customerId}, {transaction: t})
                         ]);
                     }
                     return deferred.reject({message: "Order you want to update does not exists"});

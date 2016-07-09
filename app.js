@@ -19,10 +19,13 @@ module.exports = function () {
     var userService = require(path.join(__dirname, ".","services","user"))(models, Q);
     var groupService = require(path.join(__dirname, ".","services","group"))(models, Q);
     var customerService = require(path.join(__dirname, ".","services","customer"))(models, Q);
+    var itemDictService = require(path.join(__dirname, ".","services","itemdict"))(models, Q);
+
     var orderRoute = require(path.join(__dirname, ".", "routes","order"))(express, orderService);
     var userRoute = require(path.join(__dirname, ".", "routes","user"))(express, userService);
     var groupRoute = require(path.join(__dirname, ".", "routes","group"))(express, groupService);
     var customerRoute = require(path.join(__dirname, ".", "routes","customer"))(express, customerService);
+    var itemDictRoute = require(path.join(__dirname, ".", "routes","itemdict"))(express, itemDictService);
 
     var env = process.env.NODE_ENV || "development";
     var config = require(path.join(__dirname, "config", "config.json"))[env];
@@ -45,6 +48,7 @@ module.exports = function () {
     app.use(config.apiUrl  + "/user", userRoute);
     app.use(config.apiUrl  + "/group", groupRoute);
     app.use(config.apiUrl  + "/customer", customerRoute);
+    app.use(config.apiUrl  + "/itemdict", itemDictRoute);
 
     return app;
 };

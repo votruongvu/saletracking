@@ -59,10 +59,11 @@ module.exports = function (models, Q) {
                 // chain all your queries here. make sure you return them.
                 return models.order.create({
                     orderDate: newOrder.orderDate,
-                    userId:  newOrder.user.id,
+                    userId:  newOrder.userId,
+                    customerId: newOrder.customerId,
                     items: newOrder.items,
                     location: newOrder.location
-                }, {include: [{model: models.item, as: "items"}, {model: models.location, as: "location"}, {model: models.user, as: "user"}], transaction: t});
+                }, {include: [{model: models.item, as: "items"}, {model: models.location, as: "location"}], transaction: t});
             }).then(function (result) {
                 deferred.resolve(result);
             }).catch(function (err) {

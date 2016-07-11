@@ -4,6 +4,7 @@
 import {EventEmitter} from "fbemitter";
 import AppDispatcher from "./AppDispatcher";
 import AppConst from "./AppConst";
+import OrderService from "./OrderService";
 
 const CHANGE_EVENT = 'refesh_order_list';
 let __emitter = new EventEmitter();
@@ -80,9 +81,10 @@ OrderStore.dispatchToken = AppDispatcher.register((action) => {
     switch (action.type) {
         case AppConst.REFRESH_ORDER_LIST:
             //fetch data from  server into orderList
-            console.log("set []");
-            orderList = [];
-            __emitter.emit(CHANGE_EVENT);
+            OrderService.actions.orders.request().then((data)=> {
+                orderList = data;
+                __emitter.emit(CHANGE_EVENT);
+            });
             break;
     }
 });

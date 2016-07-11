@@ -11,67 +11,6 @@ import DashBoard from "./DashBoard";
 import OrderMap from "./OrderMap";
 
 injectTapEventPlugin();
-
-var Orders = [
-    {
-        id: 1,
-        orderDateTime: "2016-07-04T14:25:43.511Z",
-        items:[
-            {
-                "id": 1,
-                "productName": "Table",
-                "quantity": 1,
-                "unitPrice": 350,
-                "description": "Dinner table model AE-11"
-            },
-            {
-                "id": 2,
-                "productName": "Chair",
-                "quantity": 10,
-                "unitPrice": 50,
-                "description": "Chair model AC-11"
-            },
-            {
-                "id": 3,
-                "productName": "windows",
-                "quantity": 4,
-                "unitPrice": 500,
-                "description": "Windows for bed rooms"
-            }
-        ],
-        location: {
-            "latitude": 10.793546,
-            "longitude": 106.651911,
-            "accuracy": 5
-        }
-    },
-    {
-        id: 2,
-        orderDateTime: "2016-07-04T18:25:43.511Z",
-        items:[
-            {
-                "id": 4,
-                "productName": "Table",
-                "quantity": 1,
-                "unitPrice": 250,
-                "description": "Dinner table model AF-14"
-            },
-            {
-                "id": 5,
-                "productName": "Chair",
-                "quantity": 10,
-                "unitPrice": 60,
-                "description": "Chair model AC-18"
-            }
-        ],
-        location: {
-            "latitude": 10.779825,
-            "longitude": 106.632397,
-            "accuracy": 10
-        }
-    }
-];
-
 var iRoutes = {
     routes: [],
     [Symbol.iterator](){
@@ -104,6 +43,7 @@ class App extends Component{
         this.state = {
             route: "/dashboard"
         };
+
         this.doTabChange = (value) => {
             this.setState({
                 route: value
@@ -132,8 +72,8 @@ App.contextTypes = {
 
 const AppRoute = <Router history={browserHistory}>
     <Route path="/" component={App}>
-        <IndexRoute orders={Orders} component={DashBoard} />
-        <Route path="ordermap" orders={Orders} component={OrderMap}/>
+        <IndexRoute component={DashBoard} />
+        <Route path="ordermap" component={OrderMap}/>
     </Route>
 </Router>;
 

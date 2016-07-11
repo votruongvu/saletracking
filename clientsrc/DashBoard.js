@@ -63,8 +63,10 @@ class DashBoard extends Component{
         });
 
         return (
-            <div className="orderList">
-                {orders}
+            <div className="order">
+                <div className="order-list">
+                    {orders}
+                </div>
                 <FloatingActionButton onClick={this.doRefresh.bind(this)} style={style}><FileCloudDownload /></FloatingActionButton>
             </div>
         )

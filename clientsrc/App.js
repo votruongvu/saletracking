@@ -35,13 +35,13 @@ var iRoutes = {
     }
 };
 
-iRoutes.routes.push({name: "Orders", url: ""}, {name: "Order By Map", url:"/ordermap"});
+iRoutes.routes.push({name: "Orders", url: "/"}, {name: "Order By Map", url:"/ordermap"});
 
 class App extends Component{
     constructor(){
         super(...arguments);
         this.state = {
-            route: "/dashboard"
+            route: "/"
         };
 
         this.doTabChange = (value) => {

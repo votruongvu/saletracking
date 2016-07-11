@@ -117,7 +117,7 @@
 	    }), _ref;
 	});
 
-	iRoutes.routes.push({ name: "Orders", url: "" }, { name: "Order By Map", url: "/ordermap" });
+	iRoutes.routes.push({ name: "Orders", url: "/" }, { name: "Order By Map", url: "/ordermap" });
 
 	var App = function (_Component) {
 	    _inherits(App, _Component);
@@ -128,7 +128,7 @@
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
 
 	        _this.state = {
-	            route: "/dashboard"
+	            route: "/"
 	        };
 
 	        _this.doTabChange = function (value) {
@@ -37253,8 +37253,12 @@
 
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'orderList' },
-	                orders,
+	                { className: 'order' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'order-list' },
+	                    orders
+	                ),
 	                _react2.default.createElement(
 	                    _FloatingActionButton2.default,
 	                    { onClick: this.doRefresh.bind(this), style: style },

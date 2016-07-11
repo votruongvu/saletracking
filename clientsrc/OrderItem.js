@@ -7,7 +7,7 @@ class OrderItem extends Component{
     render(){
         var orderItems = this.props.orderItems.map((orderItem) => {
             return <li key={orderItem.id}>
-                {orderItem.description + ": " + orderItem.quantity + " x " + orderItem.unitPrice + "$"}
+                {orderItem.itemdict.name + ": " + orderItem.quantity + " x " + orderItem.itemprice.price + "$"}
             </li>
         });
         return (

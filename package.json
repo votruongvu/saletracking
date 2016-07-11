@@ -31,6 +31,7 @@
     "express": "~4.13.1",
     "fbemitter": "^2.0.2",
     "flux": "^2.1.1",
+    "isomorphic-fetch": "^2.2.1",
     "jade": "~1.11.0",
     "marked": "^0.3.5",
     "material-ui": "^0.15.1",
@@ -42,6 +43,7 @@
     "react-dom": "^15.1.0",
     "react-gmaps": "^1.5.0",
     "react-router": "^2.5.1",
+    "redux-api": "^0.9.7",
     "sequelize": "^3.23.3",
     "serve-favicon": "~2.3.0",
     "serve-static": "^1.10.3"

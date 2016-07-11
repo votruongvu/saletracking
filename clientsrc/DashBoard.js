@@ -25,6 +25,7 @@ class DashBoard extends Component{
         this.state = {
             orderList: OrderStore.getState()
         }
+        OrderListAction.refreshOrderList();
     }
     doRefresh(){
         OrderListAction.refreshOrderList();
@@ -42,8 +43,8 @@ class DashBoard extends Component{
         var orders = this.state.orderList.map((order) => {
             return <Card key={order.id} id={order.id}>
                         <CardHeader
-                                 title={moment(order.orderDateTime).format("DD-MM-YYYY, hh:mm:ss A")}
-                                 subtitle={order.location.latitude + "," + order.location.longitude}
+                                 title={order.customer.name}
+                                 subtitle={moment(order.orderDate).format("DD-MM-YYYY, hh:mm:ss A")}
                         />                 
                         <CardMedia>
                             <OrderItem orderItems={order.items}></OrderItem>

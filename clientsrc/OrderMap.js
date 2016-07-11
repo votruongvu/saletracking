@@ -59,7 +59,7 @@ class OrderMap extends Component{
         });
 
         return (
-            <div class="OrderMap">
+            <div className="OrderMap">
                 <Gmaps
                     width={this.props.containerWidth}
                     height={"600px"}

@@ -35,6 +35,24 @@ module.exports = function (models, Q) {
         });
         return deferred.promise;
     };
+
+    itemDictService.getLastItemPriceById = function (id) {
+        var deferred = Q.defer();
+        models.itemprice.findAll({
+            where: {
+                itemdictId : id
+            }
+        }).then(function (item) {
+            var maxItem = item.reduce(function(a,b){
+                return a.date > b.date?a:b;
+            });
+            //process the data which is fetch from db
+            deferred.resolve(maxItem);
+        }, function (err) {
+            deferred.reject({message: err.message});
+        });
+        return deferred.promise;
+    };
     
     return itemDictService;
 };

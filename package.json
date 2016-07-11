@@ -43,6 +43,7 @@
     "react-dom": "^15.1.0",
     "react-gmaps": "^1.5.0",
     "react-router": "^2.5.1",
+    "react-tap-event-plugin": "^1.0.0",
     "redux-api": "^0.9.7",
     "sequelize": "^3.23.3",
     "serve-favicon": "~2.3.0",

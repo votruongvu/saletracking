@@ -28,6 +28,19 @@ module.exports = function (express, itemDictService) {
         });
     });
 
+    router.get("/price/:id", function (req, res) {
+        var itemId = req.params.id;
+        itemDictService.getLastItemPriceById(itemId).then(function (itemPrice) {
+            if (itemPrice) {
+                res.status(200).json(itemPrice || []);
+            } else {
+                res.status(404).json({message: "Item not found"});
+            }
+        }, function (err) {
+            res.status(500).json(err);
+        });
+    });
+
     return router;
 };
 

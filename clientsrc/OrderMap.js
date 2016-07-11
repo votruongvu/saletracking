@@ -7,7 +7,7 @@ import Dimensions from 'react-dimensions';
 import OrderStore from "./OrderStore";
 import OrderListAction from "./OrderListAction"
 import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+import FileCloudDownload from 'material-ui/svg-icons/file/cloud-download';
 
 const style = {
     margin: 0,
@@ -71,7 +71,7 @@ class OrderMap extends Component{
                     onMapCreated={this.onMapCreated}>
                     {orderMarkers}
                 </Gmaps>
-                <FloatingActionButton onClick={this.doRefresh.bind(this)} style={style}><ContentAdd /></FloatingActionButton>
+                <FloatingActionButton onClick={this.doRefresh.bind(this)} style={style}><FileCloudDownload /></FloatingActionButton>
             </div>
         )
     }

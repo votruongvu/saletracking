@@ -5,7 +5,7 @@ import React, {Component} from "react"
 import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+import FileCloudDownload from 'material-ui/svg-icons/file/cloud-download';
 import OrderItem from "./OrderItem";
 import OrderStore from "./OrderStore";
 import OrderListAction from "./OrderListAction"
@@ -17,6 +17,13 @@ const style = {
     bottom: 20,
     left: 'auto',
     position: 'fixed'
+};
+
+const cardHeaderStyle = {
+    "font-size" : "120%",
+    "text-transform": "uppercase",
+    "font-weight": "bold",
+    "margin-bottom": "5px"
 };
 
 class DashBoard extends Component{
@@ -43,6 +50,7 @@ class DashBoard extends Component{
         var orders = this.state.orderList.map((order) => {
             return <Card key={order.id} id={order.id}>
                         <CardHeader
+                                 titleStyle={cardHeaderStyle}
                                  title={order.customer.name}
                                  subtitle={moment(order.orderDate).format("DD-MM-YYYY, hh:mm:ss A")}
                         />                 
@@ -57,7 +65,7 @@ class DashBoard extends Component{
         return (
             <div className="orderList">
                 {orders}
-                <FloatingActionButton onClick={this.doRefresh.bind(this)} style={style}><ContentAdd /></FloatingActionButton>
+                <FloatingActionButton onClick={this.doRefresh.bind(this)} style={style}><FileCloudDownload /></FloatingActionButton>
             </div>
         )
     };

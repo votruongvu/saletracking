@@ -37148,9 +37148,9 @@
 
 	var _FloatingActionButton2 = _interopRequireDefault(_FloatingActionButton);
 
-	var _add = __webpack_require__(461);
+	var _cloudDownload = __webpack_require__(461);
 
-	var _add2 = _interopRequireDefault(_add);
+	var _cloudDownload2 = _interopRequireDefault(_cloudDownload);
 
 	var _OrderItem = __webpack_require__(462);
 
@@ -37182,6 +37182,13 @@
 	    bottom: 20,
 	    left: 'auto',
 	    position: 'fixed'
+	};
+
+	var cardHeaderStyle = {
+	    "font-size": "120%",
+	    "text-transform": "uppercase",
+	    "font-weight": "bold",
+	    "margin-bottom": "5px"
 	};
 
 	var DashBoard = function (_Component) {
@@ -37231,6 +37238,7 @@
 	                    _Card.Card,
 	                    { key: order.id, id: order.id },
 	                    _react2.default.createElement(_Card.CardHeader, {
+	                        titleStyle: cardHeaderStyle,
 	                        title: order.customer.name,
 	                        subtitle: moment(order.orderDate).format("DD-MM-YYYY, hh:mm:ss A")
 	                    }),
@@ -37250,7 +37258,7 @@
 	                _react2.default.createElement(
 	                    _FloatingActionButton2.default,
 	                    { onClick: this.doRefresh.bind(this), style: style },
-	                    _react2.default.createElement(_add2.default, null)
+	                    _react2.default.createElement(_cloudDownload2.default, null)
 	                )
 	            );
 	        }
@@ -40829,18 +40837,18 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var ContentAdd = function ContentAdd(props) {
+	var FileCloudDownload = function FileCloudDownload(props) {
 	  return _react2.default.createElement(
 	    _SvgIcon2.default,
 	    props,
-	    _react2.default.createElement('path', { d: 'M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z' })
+	    _react2.default.createElement('path', { d: 'M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z' })
 	  );
 	};
-	ContentAdd = (0, _pure2.default)(ContentAdd);
-	ContentAdd.displayName = 'ContentAdd';
-	ContentAdd.muiName = 'SvgIcon';
+	FileCloudDownload = (0, _pure2.default)(FileCloudDownload);
+	FileCloudDownload.displayName = 'FileCloudDownload';
+	FileCloudDownload.muiName = 'SvgIcon';
 
-	exports.default = ContentAdd;
+	exports.default = FileCloudDownload;
 
 /***/ },
 /* 462 */
@@ -45360,9 +45368,9 @@
 
 	var _FloatingActionButton2 = _interopRequireDefault(_FloatingActionButton);
 
-	var _add = __webpack_require__(461);
+	var _cloudDownload = __webpack_require__(461);
 
-	var _add2 = _interopRequireDefault(_add);
+	var _cloudDownload2 = _interopRequireDefault(_cloudDownload);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45465,7 +45473,7 @@
 	                _react2.default.createElement(
 	                    _FloatingActionButton2.default,
 	                    { onClick: this.doRefresh.bind(this), style: style },
-	                    _react2.default.createElement(_add2.default, null)
+	                    _react2.default.createElement(_cloudDownload2.default, null)
 	                )
 	            );
 	        }

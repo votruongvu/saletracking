@@ -12,6 +12,12 @@ module.exports = function () {
     var env = process.env.NODE_ENV || "development";
     var config = require(path.join(__dirname, "..", "config", "config.json"))[env];
 
+    config.host = process.env.OPENSHIFT_MYSQL_DB_HOST || config.host;
+    config.database = process.env.OPENSHIFT_MYSQL_DB_HOST || config.database;
+    config.username = process.env.OPENSHIFT_MYSQL_DB_USERNAME || config.username;
+    config.password = process.env.OPENSHIFT_MYSQL_DB_PASSWORD || config.password;
+
+
     // connect to database using config which is defined in config.json for specified env
     var sequelize = new Sequelize(config.database, config.username, config.password, {
         host: config.host,

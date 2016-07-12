@@ -17,4 +17,4 @@ export default reduxApi({
             }
         }
     }
-}).use("fetch", adapterFetch(fetch)).use("rootUrl", "http://localhost:3000");
+}).use("fetch", adapterFetch(fetch)).use("rootUrl", "http://votruongvu-lynasofts.rhcloud.com");

@@ -41976,9 +41976,9 @@
 	            }
 	        }
 	    }
-	}).use("fetch", (0, _fetch2.default)(fetch)).use("rootUrl", "http://localhost:3000"); /**
-	                                                                                       * Created by vuvot on 7/11/2016.
-	                                                                                       */
+	}).use("fetch", (0, _fetch2.default)(fetch)).use("rootUrl", "http://votruongvu-lynasofts.rhcloud.com"); /**
+	                                                                                                         * Created by vuvot on 7/11/2016.
+	                                                                                                         */
 
 /***/ },
 /* 478 */

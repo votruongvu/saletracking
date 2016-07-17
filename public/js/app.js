@@ -41939,6 +41939,7 @@
 	 * Created by vuvot on 7/11/2016.
 	 */
 	exports.default = {
+	  BASE_URL: window.location.origin,
 	  REFRESH_ORDER_LIST: "refresh_order_list"
 	};
 
@@ -41962,8 +41963,15 @@
 
 	var _fetch2 = _interopRequireDefault(_fetch);
 
+	var _AppConst = __webpack_require__(476);
+
+	var _AppConst2 = _interopRequireDefault(_AppConst);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	/**
+	 * Created by vuvot on 7/11/2016.
+	 */
 	exports.default = (0, _reduxApi2.default)({
 	    orders: {
 	        url: "api/v1/order",
@@ -41976,9 +41984,7 @@
 	            }
 	        }
 	    }
-	}).use("fetch", (0, _fetch2.default)(fetch)).use("rootUrl", "http://votruongvu-lynasofts.rhcloud.com"); /**
-	                                                                                                         * Created by vuvot on 7/11/2016.
-	                                                                                                         */
+	}).use("fetch", (0, _fetch2.default)(fetch)).use("rootUrl", _AppConst2.default.BASE_URL);
 
 /***/ },
 /* 478 */

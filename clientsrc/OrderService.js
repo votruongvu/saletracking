@@ -4,6 +4,7 @@
 import "isomorphic-fetch";
 import reduxApi, {transformers} from "redux-api";
 import adapterFetch from "redux-api/lib/adapters/fetch";
+import AppConst from "./AppConst";
 
 export default reduxApi({
     orders:{
@@ -17,4 +18,4 @@ export default reduxApi({
             }
         }
     }
-}).use("fetch", adapterFetch(fetch)).use("rootUrl", "http://votruongvu-lynasofts.rhcloud.com");
+}).use("fetch", adapterFetch(fetch)).use("rootUrl", AppConst.BASE_URL);

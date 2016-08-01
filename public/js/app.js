@@ -45537,6 +45537,7 @@
 	                _react2.default.createElement(
 	                    _reactGmaps.Gmaps,
 	                    {
+	                        id: "map",
 	                        width: this.props.containerWidth,
 	                        height: "600px",
 	                        lat: 10.762622,

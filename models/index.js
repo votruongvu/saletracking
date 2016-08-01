@@ -48,13 +48,13 @@ module.exports = function () {
     db["group"].belongsToMany(db["user"], {through: "usergroup"});
     db["user"].belongsToMany(db["group"], {through: "usergroup"});
 
+
     db["order"].hasOne(db["location"],{as: "location"});
     db["order"].hasMany(db["item"], {as: "items"});
     db["order"].belongsTo(db["user"]);
     db["order"].belongsTo(db["customer"]);
 
-
-
+    db["user"].hasMany(db["userlocation"], {as: "userlocations"});
 
 
     //assign to db as property for later use

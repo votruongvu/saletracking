@@ -29,6 +29,15 @@ module.exports = function (express, userLocationService) {
         });
     });
 
+    router.post("/bulk/", function (req, res) {
+        var newJsonUserLocations = req.body;
+        userLocationService.addUserLocations(newJsonUserLocations).then(function () {
+            res.status(200).json([]);
+        }, function (err) {
+            res.status(500).json(err);
+        });
+    });
+
     return router;
 };
 

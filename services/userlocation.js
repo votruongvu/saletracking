@@ -41,5 +41,23 @@ module.exports = function (models, Q) {
         return deferred.promise;
     };
 
+    userLocationService.addUserLocations = function(newUserLocations){
+        var deferred = Q.defer();
+        var canAdd = true;
+        if(canAdd){
+            models.sequelize.transaction(function (t) {
+                // chain all your queries here. make sure you return them.
+                return models.userlocation.bulkCreate(newUserLocations, {transaction: t});
+            }).then(function () {
+                deferred.resolve([]);
+            }).catch(function (err) {
+                deferred.reject(err.message);
+            });
+        }else{
+            deferred.reject({message : "All fields are required and in json format when uploading. Please make sure post data in application/json format"});
+        }
+        return deferred.promise;
+    };
+
     return userLocationService;
 };

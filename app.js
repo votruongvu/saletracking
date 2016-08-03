@@ -9,11 +9,19 @@ module.exports = function () {
     var cookieParser = require("cookie-parser");
     var bodyParser = require("body-parser");
     var Q = require("q");
+    var busboy = require('connect-busboy'); //middleware for form/file upload
+    
 
     var routes = require(path.join(__dirname, ".", "routes", "index"))(express);
 
     var models = require(path.join(__dirname, ".", "models"))();
     app.models = models;
+
+    app.use(logger("dev"));
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({extended: false}));
+    app.use(cookieParser());
+    app.use(busboy());
 
     var orderService = require(path.join(__dirname, ".","services","order"))(models, Q);
     var userService = require(path.join(__dirname, ".","services","user"))(models, Q);
@@ -28,6 +36,7 @@ module.exports = function () {
     var groupRoute = require(path.join(__dirname, ".", "routes","group"))(express, groupService);
     var customerRoute = require(path.join(__dirname, ".", "routes","customer"))(express, customerService);
     var itemDictRoute = require(path.join(__dirname, ".", "routes","itemdict"))(express, itemDictService);
+    var surveyRoute = require(path.join(__dirname, ".", "routes","survey"))(express);
 
     var env = process.env.NODE_ENV || "development";
     var config = require(path.join(__dirname, "config", "config.json"))[env];
@@ -36,13 +45,10 @@ module.exports = function () {
     app.set("views", path.join(__dirname, "views"));
     app.set("view engine", "jade");
 
-    app.use(logger("dev"));
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({extended: false}));
-    app.use(cookieParser());
 
     // init routes
     app.use("/", serveStatic(path.join(__dirname, "public"), {"index": ["index.html"]}));
+    app.use("/uploads", serveStatic(path.join(__dirname, "uploads")));
     app.use("/api-docs-ui", serveStatic(path.join(__dirname, "swaggerui"), {"index": ["index.html"]}));
 
     app.use("/", routes);
@@ -52,6 +58,7 @@ module.exports = function () {
     app.use(config.apiUrl  + "/group", groupRoute);
     app.use(config.apiUrl  + "/customer", customerRoute);
     app.use(config.apiUrl  + "/itemdict", itemDictRoute);
+    app.use(config.apiUrl  + "/survey", surveyRoute);
 
     return app;
 };

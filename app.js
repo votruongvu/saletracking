@@ -37,6 +37,7 @@ module.exports = function () {
     var customerRoute = require(path.join(__dirname, ".", "routes","customer"))(express, customerService);
     var itemDictRoute = require(path.join(__dirname, ".", "routes","itemdict"))(express, itemDictService);
     var surveyRoute = require(path.join(__dirname, ".", "routes","survey"))(express);
+    var syncRoute = require(path.join(__dirname, ".", "routes","sync"))(express);
 
     var env = process.env.NODE_ENV || "development";
     var config = require(path.join(__dirname, "config", "config.json"))[env];
@@ -59,6 +60,7 @@ module.exports = function () {
     app.use(config.apiUrl  + "/customer", customerRoute);
     app.use(config.apiUrl  + "/itemdict", itemDictRoute);
     app.use(config.apiUrl  + "/survey", surveyRoute);
+    app.use(config.apiUrl  + "/sync", syncRoute);
 
     return app;
 };

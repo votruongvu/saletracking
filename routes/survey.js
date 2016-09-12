@@ -25,6 +25,9 @@ module.exports = function (express) {
             });
             file.pipe(fstream);
         });
+        busboy.on('field', function(fieldname, val) {
+            console.log('Field [' + fieldname + ']: value: ' + inspect(val));
+        });
         req.busboy.on('finish', function() {
             finished = true;
         });
